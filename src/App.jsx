@@ -1,22 +1,19 @@
 import { useState } from "react";
+
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
+  // eslint-disable-next-line
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          width: "100vw",
-        }}
-      >
-        <span>{count}</span>
-      </div>
+      <NavBar />
+      <ItemListContainer greeting="Soy lo que esta pasado a la propiedad greeting" />
     </div>
   );
 }
