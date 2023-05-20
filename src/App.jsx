@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
       <div
@@ -11,7 +14,9 @@ function App() {
           height: "100vh",
           width: "100vw",
         }}
-      ></div>
+      >
+        <span>{count}</span>
+      </div>
     </div>
   );
 }
