@@ -9,6 +9,10 @@ function App() {
   // eslint-disable-next-line
   const [count, setCount] = useState(0);
 
+  fetch('https://dummyjson.com/products')
+  .then(res => res.json())
+  .then(console.log);
+
   return (
     <div className="App">
       <NavBar />
