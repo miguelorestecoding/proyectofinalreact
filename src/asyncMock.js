@@ -132,7 +132,7 @@ const products = [
       rating: 4.43,
       stock: 68,
       brand: "Microsoft Surface",
-      category: "laptops",
+      category: "notebooks",
       thumbnail: "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
       images: [
         "https://i.dummyjson.com/data/products/8/1.jpg",
