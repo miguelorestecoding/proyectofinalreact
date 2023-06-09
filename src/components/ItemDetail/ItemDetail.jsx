@@ -3,7 +3,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const ItemDetail = ({id, title, images, price, stock}) => {
+const ItemDetail = ({id, title, images = [], price, stock}) => {
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={images[0]} />
