@@ -16,7 +16,7 @@ const Item = ({id, title, images, price, stock} ) => {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>
       <footer>
          <Link to={`/item/${id}`} variant="primary">Ver Detalle</Link>
