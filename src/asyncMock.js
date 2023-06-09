@@ -124,7 +124,7 @@ const products = [
       ]
     },
     {
-      id: "8",
+      id: "8" ,
       title: "Microsoft Surface Laptop 4",
       description: "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
       price: 1499,
@@ -158,6 +158,14 @@ export const getProductById = (productId) => {
   return new Promise((resolve) => {
       setTimeout(() => {
                   resolve(products.find(prod => prod.id === productId));
+      }, 500);
+  })
+}
+
+export const getProductsByCategory = (productCategory) => {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+                  resolve(products.find(prod => prod.category === productCategory));
       }, 500);
   })
 }

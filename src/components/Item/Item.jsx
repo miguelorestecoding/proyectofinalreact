@@ -17,6 +17,9 @@ const Item = ({id, title, images, price, stock} ) => {
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
+      <footer>
+         <link to={`/item/${id}`} variant="primary">Ver Detalle</link>
+      </footer>
     </Card>
   )
 }
