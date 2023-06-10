@@ -10,16 +10,18 @@ const NavBar = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">MiTienda</Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand href="">MiTienda</Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to='/'>Home</Link>
-            <Link href='products'>Productos</Link>
+            <Link to='/products'>Productos</Link>
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">smartphones</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">tablets</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">notebooks</NavDropdown.Item>
+              <Link to='/category/smartphones'><NavDropdown.Item href="#action/3.1">Smartphones</NavDropdown.Item></Link>
+              <NavDropdown.Item href="#action/3.2">Tablets</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Notebooks</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <CartWidget />

@@ -1,6 +1,5 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const ItemDetail = ({id, title, images = [], price, stock}) => {
