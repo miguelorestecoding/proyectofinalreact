@@ -20,8 +20,8 @@ const NavBar = () => {
             <Link to='/products'>Productos</Link>
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
               <Link to='/category/smartphones'><NavDropdown.Item href="#action/3.1">Smartphones</NavDropdown.Item></Link>
-              <NavDropdown.Item href="#action/3.2">Tablets</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Notebooks</NavDropdown.Item>
+              <Link to='/category/tablets'><NavDropdown.Item href="#action/3.2">Tablets</NavDropdown.Item></Link>
+              <Link to='/category/notebooks'><NavDropdown.Item href="#action/3.3">Notebooks</NavDropdown.Item></Link>
             </NavDropdown>
           </Nav>
           <CartWidget />
