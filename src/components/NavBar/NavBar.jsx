@@ -16,11 +16,11 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to='/'>Home</Link>
-            <Link to='/products'>Productos</Link>
+            <Nav.Link><Link to='/'>Home</Link></Nav.Link> 
+           <Nav.Link><Link to='/products'>Productos</Link></Nav.Link> 
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
               <Link to='/category/smartphones'><NavDropdown.Item href="#action/3.1">Smartphones</NavDropdown.Item></Link>
-              <Link to='/category/tablets'><NavDropdown.Item href="#action/3.2">Tablets</NavDropdown.Item></Link>
+              <Link to='/category/laptops'><NavDropdown.Item href="#action/3.2">Tablets</NavDropdown.Item></Link>
               <Link to='/category/notebooks'><NavDropdown.Item href="#action/3.3">Notebooks</NavDropdown.Item></Link>
             </NavDropdown>
           </Nav>
