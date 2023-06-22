@@ -1,12 +1,41 @@
 import React, {createContext, useState} from 'react'
 
-export const CartContext = React.createContext()
+export const CartContext = createContext( {
+    cart: []
+})
 
 export const CartProvider = ({children}) => {
-  
-    const [state, setState] = useState(10)
-    return <CartContext.Provider value={state}>{children}</CartContext.Provider>
+    const [cart, setCart] = useState([])
 
-};
+    console.log(cart)
+
+const addItem = (item, quantity) => {
+    if(!isInCart(item.id)) {
+setCart(prev =>[...prev, {...item, quantity}])
+    } else {
+        console.log("El producto ya fué agregado")
+    }
+}
+
+const removeItem = (itemId) => {
+    const cartUpdated = cart.filter(prod => prod.id !== itemId)
+    setCart(cartUpdated)
+}
+
+const clearCart = () => {
+    setCart([])
+}
+
+const isInCart = (itemId) => {
+    return cart.some(prod => prod.id === itemId)
+}
+
+    return (
+    <CartContext.Provider value={{cart, addItem, removeItem, clearCart}}>
+        {children}
+        </CartContext.Provider>
+    )
+}
 
 export default CartContext
+/* la ultima linea no se si va, el export defaul, ya que tiene un export arriba*/
