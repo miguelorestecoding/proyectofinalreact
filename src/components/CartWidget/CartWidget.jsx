@@ -10,17 +10,19 @@ const CartWidget = () => {
   const { totalQuantity } = useContext(CartContext)
 
   return (
-    <Link to="/cart"
+    <div
       style={{
-        display: totalQuantity > 0 ? "flex" : "none",
+        display: 'flex',
         justifyContent: "space-between",
         alignItems: "center",
         width: "40px",
       }}
     >
+      <Link to="/cart">
       <FontAwesomeIcon icon={faCartShopping} />
+      </Link>
       <span>{totalQuantity}</span>
-    </Link>
+    </div>
   );
 };
 
