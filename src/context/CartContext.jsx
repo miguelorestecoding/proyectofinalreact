@@ -1,13 +1,30 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useState, useEffect} from 'react'
 
 export const CartContext = createContext( {
-    cart: []
+    cart: [],
+    totalQuantity: 0,
+    total: 0,
 })
 
 export const CartProvider = ({children}) => {
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [total, setTotal] = useState(0)
 
     console.log(cart)
+
+useEffect(() => {
+    let quantitySum = 0;
+    let priceSum = 0;
+
+    cart.forEach(item => {
+        quantitySum += item.quantitySum;
+        priceSum += item.price * item.quantity
+    });
+    setTotalQuantity(quantitySum);
+    setTotal(priceSum)
+}, [cart]);
+
 
 const addItem = (item, quantity) => {
     if(!isInCart(item.id)) {
@@ -31,11 +48,10 @@ const isInCart = (itemId) => {
 }
 
     return (
-    <CartContext.Provider value={{cart, addItem, removeItem, clearCart}}>
+    <CartContext.Provider value={{cart, addItem, removeItem, clearCart, totalQuantity, total}}>
         {children}
         </CartContext.Provider>
     )
 }
 
-export default CartContext
-/* la ultima linea no se si va, el export defaul, ya que tiene un export arriba*/
+export default CartProvider
