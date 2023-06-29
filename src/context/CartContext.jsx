@@ -18,8 +18,8 @@ useEffect(() => {
     let priceSum = 0;
 
     cart.forEach(item => {
-        quantitySum += item.quantitySum;
-        priceSum += item.price * item.quantity
+        quantitySum += item.quantity;
+        priceSum += item.price * item.quantity;
     });
     setTotalQuantity(quantitySum);
     setTotal(priceSum)
