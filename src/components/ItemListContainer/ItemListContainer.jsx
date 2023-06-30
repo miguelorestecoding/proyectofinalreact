@@ -1,8 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getProducts, getProductsByCategory } from "../../asyncMock";
+// import { getProducts, getProductsByCategory } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams  } from "react-router-dom";  
+
+import {collection, getDocs, getFirestore } from "firebase/firestore"
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -11,17 +13,28 @@ const ItemListContainer = ({ greeting }) => {
   const { categoryId } = useParams()
 
   useEffect(() => {
-      const asyncFunc = categoryId ? getProductsByCategory : getProducts
+ const db = getFirestore();
+ const productCollection = collection(db, "proyecto-final-react");
 
-      asyncFunc(categoryId)
-      .then(response => {
-        setProducts(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+ getDocs(productCollection).then((snapshot) => {
+  setProducts(
+    snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } ))
+ );
+  });
+
+      // const asyncFunc = categoryId ? getProductsByCategory : getProducts
+
+      // asyncFunc(categoryId)
+      // .then(response => {
+      //   setProducts(response)
+      // })
+      // .catch(error => {
+      //   console.log(error)
+      // })
 
     }, [categoryId]);
+
+console.log(products)
 
   return (
     <div
