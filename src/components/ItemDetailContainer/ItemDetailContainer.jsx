@@ -14,7 +14,6 @@ const ItemDetailContainer = () => {
 
       const db = getFirestore();
  const productCollection = doc(db, "proyecto-final-react", itemId);
-
  getDoc(productCollection).then((snapshot) => {
   setProduct({ id: snapshot.id, ...snapshot.data() }); 
   }); 
