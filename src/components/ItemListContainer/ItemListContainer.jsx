@@ -18,7 +18,7 @@ const ItemListContainer = ({ greeting }) => {
 
  getDocs(productCollection).then((snapshot) => {
   setProducts(
-    snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } ))
+    snapshot.docs.map((doc) => ({ idF: doc.id, ...doc.data() } ))
  );
   });
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-const Item = ({id, title, images, price, stock} ) => {
+const Item = ({idF, id, title, images, price, stock} ) => {
   return (
     <Card style={{ width: '18rem' }}>
       <Link to={`/item/${id}`}>
@@ -22,7 +22,7 @@ const Item = ({id, title, images, price, stock} ) => {
         {/* <Button variant="primary">Go somewhere</Button> */}
       </Card.Body>
       <footer>
-         <Link to={`/item/${id}`} variant="primary">Ver Detalle</Link>
+         <Link to={`/item/${idF}`} variant="primary">Ver Detalle</Link>
       </footer>
     </Card>
   )
