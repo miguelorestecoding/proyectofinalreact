@@ -12,29 +12,19 @@ const ItemListContainer = ({ greeting }) => {
 
   const { categoryId } = useParams()
 
-  useEffect(() => {
- const db = getFirestore();
- const productCollection = collection(db, "proyecto-final-react");
- const productCollectionFiltred = query(collection(db, "product-final-react"), where("category", "==", categoryId))
-
- const ref = categoryId ? productCollectionFiltred : productCollection;
-
+   useEffect(() => {
+  const db = getFirestore();
+      const ref = !categoryId
+        ? collection(db, "proyecto-final-react")
+        : query(
+            collection(db, "proyecto-final-react"),
+            where("category", "==", categoryId)
+          );
  getDocs(ref).then((snapshot) => {
   setProducts(
     snapshot.docs.map((doc) => ({ idF: doc.id, ...doc.data() } ))
  );
   });
-
-      // const asyncFunc = categoryId ? getProductsByCategory : getProducts
-
-      // asyncFunc(categoryId)
-      // .then(response => {
-      //   setProducts(response)
-      // })
-      // .catch(error => {
-      //   console.log(error)
-      // })
-
     }, [categoryId]);
 
 console.log(products)
