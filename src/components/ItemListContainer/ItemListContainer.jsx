@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import { useParams  } from "react-router-dom";  
 
-import {collection, getDocs, getFirestore } from "firebase/firestore"
+import {collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -15,8 +15,11 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
  const db = getFirestore();
  const productCollection = collection(db, "proyecto-final-react");
+ const productCollectionFiltred = query(collection(db, "product-final-react"), where("category", "==", categoryId))
 
- getDocs(productCollection).then((snapshot) => {
+ const ref = categoryId ? productCollectionFiltred : productCollection;
+
+ getDocs(ref).then((snapshot) => {
   setProducts(
     snapshot.docs.map((doc) => ({ idF: doc.id, ...doc.data() } ))
  );
